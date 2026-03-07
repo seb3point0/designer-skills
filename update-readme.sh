@@ -1,3 +1,7 @@
+#!/bin/bash
+set -e
+echo "📝 Updating root README..."
+cat > README.md << 'EOF'
 # Designer Skills Collection
 Agentic skills, commands, and plugins for design — from research to systems, UI, interaction, and delivery.
 **63 skills** and **27 commands** across **8 plugins** for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
@@ -58,3 +62,5 @@ claude install github:Owl-Listener/designer-skills
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on adding new skills, commands, and plugins.
 ## License
 MIT — see [LICENSE](./LICENSE).
+EOF
+echo "✅ README updated"
