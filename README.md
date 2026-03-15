@@ -13,14 +13,27 @@ Agentic skills, commands, and plugins for design — from research to systems, U
 | [design-ops](./design-ops) | 7 | 3 | Streamline operations: critique frameworks, handoff specs, sprint planning, and team workflows. |
 | [designer-toolkit](./designer-toolkit) | 6 | 3 | Essential utilities: design rationale, presentations, case studies, UX writing, and system adoption. |
 ## Quick Start
-### Install a Single Plugin
-```bash
-claude install github:Owl-Listener/designer-skills/design-research
+
+### Step 1: Add the Marketplace
+
+In Claude Code, run:
+
 ```
-### Install All Plugins
-```bash
-claude install github:Owl-Listener/designer-skills
+/plugin marketplace add Owl-Listener/designer-skills
 ```
+
+This registers the marketplace so you can browse and install individual plugins.
+
+### Step 2: Install Plugins
+
+Open the plugin manager and browse available plugins:
+
+```
+/plugin
+```
+
+Go to the **Discover** tab to see all 8 design plugins, then select and install the ones you want.
+
 ## What Are Skills and Commands?
 - **Skills** are domain knowledge units (nouns). They teach Claude about a design topic — like creating user personas, defining design tokens, or writing error messages.
 - **Commands** are workflows (verbs). They chain multiple skills together to accomplish a task — like running a full design system audit or planning a usability test.
