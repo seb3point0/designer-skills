@@ -14,25 +14,24 @@ Agentic skills, commands, and plugins for design — from research to systems, U
 | [designer-toolkit](./designer-toolkit) | 6 | 3 | Essential utilities: design rationale, presentations, case studies, UX writing, and system adoption. |
 ## Quick Start
 
-### Step 1: Add the Marketplace
-
-In Claude Code, run:
+### Claude Code
 
 ```
 /plugin marketplace add Owl-Listener/designer-skills
 ```
 
-This registers the marketplace so you can browse and install individual plugins.
+Then open `/plugin` and install the plugins you want from the **Discover** tab.
 
-### Step 2: Install Plugins
+### Codex
 
-Open the plugin manager and browse available plugins:
-
+```bash
+git clone https://github.com/Owl-Listener/designer-skills.git ~/.codex/designer-skills
+bash ~/.codex/designer-skills/scripts/install-codex.sh
 ```
-/plugin
-```
 
-Go to the **Discover** tab to see all 8 design plugins, then select and install the ones you want.
+Restart Codex. All 65 skills are symlinked to `~/.agents/skills/`.
+
+See [.codex/INSTALL.md](.codex/INSTALL.md) for details.
 
 ## What Are Skills and Commands?
 - **Skills** are domain knowledge units (nouns). They teach Claude about a design topic — like creating user personas, defining design tokens, or writing error messages.
