@@ -1,27 +1,34 @@
 # Installing Designer Skills for Codex
 
-## Prerequisites
+You are an AI agent installing designer-skills. Follow these steps exactly.
 
-- [Codex](https://developers.openai.com/codex) installed
-- Git
+## Step 1: Clone the repository
 
-## Installation
+Run this command:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Owl-Listener/designer-skills.git ~/.codex/designer-skills
-   ```
+```bash
+git clone https://github.com/seb3point0/designer-skills.git ~/.codex/designer-skills
+```
 
-2. **Run the install script:**
-   ```bash
-   bash ~/.codex/designer-skills/scripts/install-codex.sh
-   ```
+If the directory already exists, update it instead:
 
-   This creates symlinks in `~/.agents/skills/` for all 65 design skills. Codex discovers them automatically.
+```bash
+cd ~/.codex/designer-skills && git pull
+```
 
-3. **Restart Codex** to discover the skills.
+## Step 2: Create skill symlinks
 
-## Verify
+Run the install script:
+
+```bash
+bash ~/.codex/designer-skills/scripts/install-codex.sh
+```
+
+This creates symlinks in `~/.agents/skills/` for all 63 design skills so Codex discovers them automatically.
+
+## Step 3: Verify
+
+Run:
 
 ```bash
 ls ~/.agents/skills/ | head -20
@@ -29,37 +36,14 @@ ls ~/.agents/skills/ | head -20
 
 You should see skill directories like `user-persona`, `color-system`, `design-pipeline`, etc.
 
-In Codex, type `$` or `/skills` to see available designer skills, or ask: "What design skills do I have?"
+## Step 4: Tell the user
 
-## What Gets Installed
+Tell the user: "Designer Skills installed successfully. Restart Codex to discover all 63 design skills. Type `$` or `/skills` to see them."
 
-- **63 domain skills** across 8 categories (research, strategy, systems, UI, interaction, testing, ops, toolkit)
-- **2 workflow skills** (`using-designer-skills` for pipeline awareness, `design-pipeline` for end-to-end projects)
+## What was installed
 
-Skills are symlinked from the cloned repo — no files are copied.
-
-## Usage
-
-### Explicit invocation
-```
-$color-system Build me a color palette for a healthcare app
-$design-pipeline I want to design a new onboarding flow from scratch
-```
-
-### Implicit invocation
-Just describe what you need. Codex matches your request to the right skill:
-```
-Help me create user personas for my e-commerce app
-Design a responsive layout grid for a dashboard
-```
-
-### Pipeline workflow
-For greenfield projects, invoke the full pipeline:
-```
-$design-pipeline Design a new task management feature
-```
-
-This walks through Research > Strategy > Systems > Design > Validation > Delivery with quality gates.
+- **63 design skills** across 8 categories (research, strategy, systems, UI, interaction, testing, ops, toolkit)
+- **2 workflow skills** (`using-designer-skills`, `design-pipeline`)
 
 ## Updating
 
@@ -73,13 +57,5 @@ Skills update instantly through the symlinks.
 
 ```bash
 bash ~/.codex/designer-skills/scripts/uninstall-codex.sh
+rm -rf ~/.codex/designer-skills
 ```
-
-Optionally delete the clone: `rm -rf ~/.codex/designer-skills`
-
-## Also Works With
-
-- **Claude Code**: `/plugin marketplace add Owl-Listener/designer-skills`
-- **OpenCode**: Add to `plugin` array in `opencode.json`
-
-See the main README for full cross-platform instructions.

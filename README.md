@@ -24,28 +24,23 @@ Then open `/plugin` and install the plugins you want from the **Discover** tab.
 
 ### Codex
 
-```bash
-git clone https://github.com/Owl-Listener/designer-skills.git ~/.codex/designer-skills
-bash ~/.codex/designer-skills/scripts/install-codex.sh
+Tell Codex:
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/seb3point0/designer-skills/refs/heads/main/.codex/INSTALL.md
 ```
 
-Restart Codex. All 65 skills are symlinked to `~/.agents/skills/`.
-
-See [.codex/INSTALL.md](.codex/INSTALL.md) for details.
+**Detailed docs:** [.codex/INSTALL.md](.codex/INSTALL.md)
 
 ### OpenCode
 
-Add to your `opencode.json`:
+Tell OpenCode:
 
-```json
-{
-  "plugin": ["designer-skills@git+https://github.com/Owl-Listener/designer-skills.git"]
-}
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/seb3point0/designer-skills/refs/heads/main/.opencode/INSTALL.md
 ```
 
-Restart OpenCode. All skills and 27 commands are registered automatically.
-
-See [.opencode/INSTALL.md](.opencode/INSTALL.md) for details.
+**Detailed docs:** [.opencode/INSTALL.md](.opencode/INSTALL.md)
 
 ## What Are Skills and Commands?
 - **Skills** are domain knowledge units (nouns). They teach Claude about a design topic — like creating user personas, defining design tokens, or writing error messages.

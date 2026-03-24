@@ -1,66 +1,40 @@
 # Installing Designer Skills for OpenCode
 
-## Prerequisites
+You are an AI agent installing designer-skills. Follow these steps exactly.
 
-- [OpenCode.ai](https://opencode.ai) installed
+## Step 1: Add the plugin to opencode.json
 
-## Installation
+Find the user's `opencode.json` file. Check these locations in order:
 
-Add designer-skills to the `plugin` array in your `opencode.json` (global or project-level):
+1. `./opencode.json` (project-level, preferred)
+2. `~/.config/opencode/opencode.json` (global)
+
+If the file exists, add `"designer-skills@git+https://github.com/seb3point0/designer-skills.git"` to the `"plugin"` array. If the `"plugin"` key doesn't exist, create it.
+
+If no `opencode.json` exists, create one at `~/.config/opencode/opencode.json` with:
 
 ```json
 {
-  "plugin": ["designer-skills@git+https://github.com/Owl-Listener/designer-skills.git"]
+  "plugin": ["designer-skills@git+https://github.com/seb3point0/designer-skills.git"]
 }
 ```
 
-Restart OpenCode. The plugin auto-installs and registers all 63 design skills.
+**Important:** Preserve all existing config. Only add the plugin entry.
 
-Verify by asking: "What design skills do I have?"
+## Step 2: Verify the change
 
-Or type `/` to see available design commands.
+Read back the file to confirm the plugin was added correctly.
 
-## What Gets Installed
+## Step 3: Tell the user
+
+Tell the user: "Designer Skills installed successfully. Restart OpenCode to activate all 63 design skills and 27 commands. Type `/` to see available design commands, or ask 'What design skills do I have?'"
+
+## What gets installed
 
 The plugin registers:
 - **63 design skills** across 8 categories (research, strategy, systems, UI, interaction, testing, ops, toolkit)
-- **2 workflow skills** (`using-designer-skills` for pipeline awareness, `design-pipeline` for end-to-end projects)
+- **2 workflow skills** (`using-designer-skills`, `design-pipeline`)
 - **27 commands** for quick access to multi-skill workflows
-- **Session bootstrap** that makes every session aware of available design skills
-
-## Usage
-
-### Commands
-
-Type `/` in the TUI to see all available design commands:
-
-```
-/discover           - Full user research cycle
-/strategize         - Complete UX strategy
-/design-screen      - Design a screen layout
-/evaluate           - Heuristic evaluation
-/handoff            - Developer handoff package
-```
-
-### Skills
-
-Use OpenCode's native `skill` tool:
-
-```
-use skill tool to list skills
-use skill tool to load color-system
-use skill tool to load design-pipeline
-```
-
-### Full Pipeline
-
-For greenfield projects, ask the agent to use the `design-pipeline` skill:
-
-```
-I want to design a new feature from scratch. Use the design-pipeline skill.
-```
-
-This walks through Research > Strategy > Systems > Design > Validation > Delivery with quality gates.
 
 ## Updating
 
@@ -70,16 +44,13 @@ To pin a specific version:
 
 ```json
 {
-  "plugin": ["designer-skills@git+https://github.com/Owl-Listener/designer-skills.git#v1.0.0"]
+  "plugin": ["designer-skills@git+https://github.com/seb3point0/designer-skills.git#v1.0.0"]
 }
 ```
 
-## How It Works
+## Uninstalling
 
-The plugin does two things:
-
-1. **Registers all skill directories** via the `config` hook, so OpenCode discovers all 63+ skills without symlinks or manual config.
-2. **Injects pipeline awareness** via `experimental.chat.system.transform`, adding design skill awareness to every conversation.
+Remove the `designer-skills` entry from the `"plugin"` array in `opencode.json`.
 
 ## Troubleshooting
 
@@ -93,19 +64,3 @@ The plugin does two things:
 
 1. Use the `skill` tool to list what's discovered
 2. Check that the plugin is loading (see above)
-3. Each skill needs a `SKILL.md` file with valid YAML frontmatter
-
-### Commands not showing
-
-1. Commands should appear when you type `/` in the TUI
-2. Verify `.opencode/commands/` directory exists in the installed plugin
-
-## Also Works With
-
-- **Claude Code**: Install via `/plugin marketplace add Owl-Listener/designer-skills`
-- **Codex**: Clone + run install script (see `.codex/INSTALL.md`)
-
-## Getting Help
-
-- Report issues: https://github.com/Owl-Listener/designer-skills/issues
-- Design philosophy: https://marieclairedean.substack.com/p/i-built-63-design-skills-for-claude
