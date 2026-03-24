@@ -33,6 +33,20 @@ Restart Codex. All 65 skills are symlinked to `~/.agents/skills/`.
 
 See [.codex/INSTALL.md](.codex/INSTALL.md) for details.
 
+### OpenCode
+
+Add to your `opencode.json`:
+
+```json
+{
+  "plugin": ["designer-skills@git+https://github.com/Owl-Listener/designer-skills.git"]
+}
+```
+
+Restart OpenCode. All skills and 27 commands are registered automatically.
+
+See [.opencode/INSTALL.md](.opencode/INSTALL.md) for details.
+
 ## What Are Skills and Commands?
 - **Skills** are domain knowledge units (nouns). They teach Claude about a design topic — like creating user personas, defining design tokens, or writing error messages.
 - **Commands** are workflows (verbs). They chain multiple skills together to accomplish a task — like running a full design system audit or planning a usability test.
